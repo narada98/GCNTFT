@@ -10,7 +10,7 @@ import datetime
 def main():
     # Paths
     data_path = "data/processed/data_w_geo_v3.csv"
-    output_dir = f"data/embeddings_v2_{datetime.datetime.now().strftime('%Y%m%d%H%M')}"
+    output_dir = f"data/embeddings_v2_lap_{datetime.datetime.now().strftime('%Y%m%d%H%M')}"
 
     # Ensure output directory exists
     if not os.path.exists(output_dir):
@@ -79,6 +79,7 @@ def main():
         
         print(f"timestamps: {timestamps}")
         print(f"embeddings: {embeddings.shape[0]}")
+        
         if timestamps*nunique_station_locs == embeddings.shape[0]:
             # Save embeddings with timestamps
             embedding_df = pd.DataFrame(embeddings, index=timestamps)

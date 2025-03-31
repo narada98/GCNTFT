@@ -182,8 +182,7 @@ class AirQualityGraphDataset:
         
         # Extract station coordinates
         station_ids = list(self.stations.keys())
-        positions = np.array([[self.stations[id]['latitude'], self.stations[id]['longitude']] 
-                              for id in station_ids])
+        positions = np.array([[self.stations[id]['latitude'], self.stations[id]['longitude']] for id in station_ids])
         
         # Plot nodes
         plt.scatter(positions[:, 1], positions[:, 0], s=100, c='blue', label='Stations')
@@ -191,8 +190,7 @@ class AirQualityGraphDataset:
         # Plot edges
         for i, j in graph.edge_index.t().tolist():
             if i != j:  # Skip self-loops
-                plt.plot([positions[i, 1], positions[j, 1]], 
-                         [positions[i, 0], positions[j, 0]], 'k-', alpha=0.3)
+                plt.plot([positions[i, 1], positions[j, 1]], [positions[i, 0], positions[j, 0]], 'k-', alpha=0.3)
         
         # Add labels
         for i, station_id in enumerate(station_ids):

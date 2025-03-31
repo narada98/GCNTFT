@@ -1,0 +1,4 @@
+added decoder to graph model
+changed loss function in train gnns accordngly
+
+increased train loss by a lot

@@ -34,8 +34,8 @@ torch.backends.cudnn.benchmark = True  # optimize CUDA operations
 
 
 # Define paths
-data_path = "/home/naradalinux/dev/GCNTFT/data/processed/data_w_geo_v3.csv"
-embeddings_path = "/home/naradalinux/dev/GCNTFT/data/embeddings_v2/tft_ready_embeddings.csv"
+data_path = "/home/naradaw/code/GCNTFT/data/processed/data_w_geo_v3.csv"
+embeddings_path = "/home/naradaw/code/GCNTFT/data/embeddings_v2_lap_202503312035/tft_ready_embeddings.csv"
 
 # Load the air quality data
 air_quality_df = pd.read_csv(data_path)
@@ -59,7 +59,7 @@ necessary_columns = ['datetime', 'time_idx', 'PM2.5 (ug/m3)', 'latitude', 'longi
 air_quality_df = air_quality_df[necessary_columns]
 air_quality_df.rename(columns={'PM2.5 (ug/m3)': 'PM25'}, inplace=True)
 
-combined_df = pd.read_csv("/home/naradalinux/dev/GCNTFT/data/processed/data_w_geo_v4.csv")
+combined_df = pd.read_csv("/home/naradaw/code/GCNTFT/data/processed/data_w_geo_v4.csv")
 
 # Define prediction parameters
 max_prediction_length = 24  # predict 24 hours into the future
