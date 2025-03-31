@@ -5,11 +5,16 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from graph_dataset import AirQualityGraphDataset
 from train_gnn import train_gnn
+import datetime
 
 def main():
     # Paths
-    data_path = "/home/naradalinux/dev/Graph_TFT/data/processed/data_w_geo_v3.csv"
-    output_dir = "/home/naradalinux/dev/Graph_TFT/data/embeddings_v2"
+    data_path = "data/processed/data_w_geo_v3.csv"
+    output_dir = f"data/embeddings_v2_{datetime.datetime.now().strftime('%Y%m%d%H%M')}"
+
+    # Ensure output directory exists
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
     
     # Create dataset
     print("Creating graph dataset...")
@@ -28,12 +33,12 @@ def main():
     train_gnn(
         data_path=data_path,
         output_dir=output_dir,
-        window_size=24,
-        hidden_dim=64,
-        output_dim=32,
-        batch_size=32,
-        epochs=20,
-        lr=0.001
+        window_size=24,  # Increase from 24 to capture longer patterns
+        hidden_dim=128,  # Increase from 64 for more expressive power
+        output_dim=64,   # Increase from 32 to capture more details
+        batch_size=64,   # Larger batch size for more stable learning
+        epochs=100,      # Train longer (from 50)
+        lr=0.0005,       # Slightly lower learning rate
     )
     
     # Load embeddings
