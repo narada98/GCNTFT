@@ -14,7 +14,8 @@ def train_gnn(
     output_dim: int = 32,
     batch_size: int = 32,
     epochs: int = 10,
-    lr: float = 0.001
+    lr: float = 0.001,
+    weight_decay: float = 1e-5,
 ):
     """
     Train a GNN on air quality data and save node embeddings.
@@ -68,7 +69,7 @@ def train_gnn(
     
     # Define loss function and optimizer
     # We'll use a simple MSE reconstruction loss
-    optimizer = torch.optim.Adam(model.parameters(), lr=lr)
+    optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=weight_decay)
     
     # Training loop
     for epoch in range(epochs):
@@ -109,6 +110,9 @@ def train_gnn(
     # Generate embeddings for all data
     model.eval()
     all_embeddings = []
+    all_stations = []
+    all_timestamps = []
+    timestamp_counter = 0
     
     # Print dataset information
     print(f"Dataset size: {len(dataset)} graphs")
@@ -126,7 +130,21 @@ def train_gnn(
         for data in DataLoader(dataset, batch_size=1):
             data = data.to(device)
             node_emb, _ = model(data)
-            all_embeddings.append(node_emb.cpu().numpy())
+            
+            # Store embedding with station information
+            for i, station_id in enumerate(data.station_ids[0]):  # Access station IDs from the graph
+                all_embeddings.append(node_emb[i].cpu().numpy())
+                all_stations.append(station_id)
+                all_timestamps.append(timestamp_counter)
+            
+            timestamp_counter += 1
+    
+    embeddings_data = {
+        'embedding': all_embeddings,
+        'station_id': all_stations,
+        'timestamp_idx': all_timestamps
+    }
+    np.save(os.path.join(output_dir, "structured_embeddings.npy"), embeddings_data)
     
     # Save embeddings
     embeddings_file = os.path.join(output_dir, "node_embeddings.npy")
@@ -140,8 +158,8 @@ def train_gnn(
     print(f"Model saved to {model_file}")
 
 if __name__ == "__main__":
-    data_path = "/home/naradaw/code/GCNTFT/data/processed/data_w_geo_v3.csv"
-    output_dir = "/home/naradaw/code/GCNTFT/data/embeddings_train_v2_test"
+    # data_path = "/home/naradaw/code/GCNTFT/data/processed/data_w_geo_v3.csv"
+    # output_dir = "/home/naradaw/code/GCNTFT/data/embeddings_train_v2_test"
     
     train_gnn(
         data_path=data_path,

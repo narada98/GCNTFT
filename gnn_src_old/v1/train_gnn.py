@@ -32,6 +32,7 @@ def train_gnn(
     # Create output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)
     
+    
     # Create dataset
     dataset = AirQualityGraphDataset(
         data_path=data_path,

@@ -59,6 +59,9 @@ necessary_columns = ['datetime', 'time_idx', 'PM2.5 (ug/m3)', 'latitude', 'longi
 air_quality_df = air_quality_df[necessary_columns]
 air_quality_df.rename(columns={'PM2.5 (ug/m3)': 'PM25'}, inplace=True)
 
+
+
+
 combined_df = pd.read_csv("/home/naradaw/code/GCNTFT/data/processed/data_w_geo_v4.csv")
 
 # Define prediction parameters

@@ -9,8 +9,8 @@ import datetime
 
 def main():
     # Paths
-    data_path = "/home/naradaw/code/GCNTFT/data/processed/data_w_geo_v3.csv"
-    output_dir = f"/home/naradaw/code/GCNTFT/data/embeddings_v2_lap_{datetime.datetime.now().strftime('%Y%m%d%H%M')}"
+    data_path = "/home/naradaw/code/GCNTFT/data/processed/gnn_ready.csv"
+    output_dir = f"/home/naradaw/code/GCNTFT/data/embeddings_v2_final_{datetime.datetime.now().strftime('%Y%m%d%H%M')}"
 
     # Create output directory if it doesn't exist
     if not os.path.exists(output_dir):
@@ -21,7 +21,7 @@ def main():
     dataset = AirQualityGraphDataset(
         data_path=data_path,
         window_size=24,
-        normalize=True
+        normalize=False
     )
     
     # Plot graph
@@ -34,17 +34,45 @@ def main():
         data_path=data_path,
         output_dir=output_dir,
         window_size=24,  
-        hidden_dim=128,  # Increase from 64 for more expressive power
-        output_dim=64,   # Increase from 32 to capture more details
-        batch_size=64,   # Larger batch size for more stable learning
-        epochs=100,      # Train longer (from 50)
-        lr=0.0005,       # Slightly lower learning rate
-        # weight_decay=1e-5  # Add L2 regularization
+        hidden_dim=128,  
+        output_dim=32,   
+        batch_size=64,   
+        epochs=100,      
+        lr=0.0005,       
+        weight_decay=1e-5  # Add L2 regularization
     )
     
     # Load embeddings
     embeddings_file = os.path.join(output_dir, "node_embeddings.npy")
-    if os.path.exists(embeddings_file):
+    
+    structured_embeddings_file = os.path.join(output_dir, "structured_embeddings.npy")
+    if os.path.exists(structured_embeddings_file):
+        embeddings_data = np.load(structured_embeddings_file, allow_pickle=True).item()
+        
+        # Create DataFrame with station and timestamp information
+        embedding_arrays = [arr for arr in embeddings_data['embedding']]
+        embedding_df = pd.DataFrame(
+            embedding_arrays,
+            columns=[f"emb_{i}" for i in range(len(embedding_arrays[0]))]
+        )
+        
+        # Add station and timestamp info
+        embedding_df['station_id'] = embeddings_data['station_id']
+        embedding_df['timestamp_idx'] = embeddings_data['timestamp_idx']
+        
+        # Map timestamp indices to actual timestamps
+        all_timestamps = sorted(raw_data['datetime'].unique())
+        valid_timestamps = all_timestamps[23:]  # Skip first window_size-1
+        embedding_df['datetime'] = embedding_df['timestamp_idx'].apply(
+            lambda idx: valid_timestamps[idx] if idx < len(valid_timestamps) else None
+        )
+        
+        # Set multi-index
+        embedding_df = embedding_df.set_index(['datetime', 'station_id']).drop('timestamp_idx', axis=1)
+        embedding_df.to_csv(os.path.join(output_dir, "tft_ready_embeddings.csv"))
+        print("TFT-ready embeddings saved successfully.")
+    
+    elif os.path.exists(embeddings_file):
         embeddings = np.load(embeddings_file)
         print(f"Loaded embeddings with shape: {embeddings.shape}")
         
