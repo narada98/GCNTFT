@@ -1,0 +1,15 @@
+artifact_uri: file:///home/naradaw/code/GCNTFT/tft_src/../mlflow_experiments/565962525244071266/fd3335fbe9cc42e78933d0bb9fd325cb/artifacts
+end_time: 1743941049295
+entry_point_name: ''
+experiment_id: '565962525244071266'
+lifecycle_stage: active
+run_id: fd3335fbe9cc42e78933d0bb9fd325cb
+run_name: upset-wren-780
+run_uuid: fd3335fbe9cc42e78933d0bb9fd325cb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1743928353172
+status: 4
+tags: []
+user_id: naradaw

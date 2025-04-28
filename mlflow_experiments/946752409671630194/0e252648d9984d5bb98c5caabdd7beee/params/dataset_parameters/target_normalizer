@@ -1,0 +1,8 @@
+GroupNormalizer(
+	method='standard',
+	groups=['station_loc'],
+	center=True,
+	scale_by_group=False,
+	transformation=None,
+	method_kwargs={}
+)

@@ -1,0 +1,15 @@
+artifact_uri: file:///home/naradaw/code/GCNTFT/tft_src/../mlflow_experiments/565962525244071266/e9a5720c5dd04b1dbd9b1f7a8dc78fb4/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '565962525244071266'
+lifecycle_stage: active
+run_id: e9a5720c5dd04b1dbd9b1f7a8dc78fb4
+run_name: salty-horse-425
+run_uuid: e9a5720c5dd04b1dbd9b1f7a8dc78fb4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1743927851938
+status: 1
+tags: []
+user_id: naradaw

@@ -1,0 +1,15 @@
+artifact_uri: file:///home/naradaw/code/GCNTFT/tft_src/../mlflow_experiments/946752409671630194/5bdaccc4122d4db1ac01e7c934fd24ef/artifacts
+end_time: 1743790604632
+entry_point_name: ''
+experiment_id: '946752409671630194'
+lifecycle_stage: active
+run_id: 5bdaccc4122d4db1ac01e7c934fd24ef
+run_name: chill-kite-350
+run_uuid: 5bdaccc4122d4db1ac01e7c934fd24ef
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1743788859058
+status: 3
+tags: []
+user_id: naradaw

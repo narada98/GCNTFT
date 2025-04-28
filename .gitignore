@@ -1,1 +1,15 @@
 data/
+explanations/
+notebooks/
+gnn_src-old/
+random_stuff/
+testbed/
+Thesis_content/
+changes_done
+important links
+
+model_comparison_forecast.png
+model_comparison_radar.png
+model_comparison_rmse.png
+model_comparison_metrics.csv
+changes_done

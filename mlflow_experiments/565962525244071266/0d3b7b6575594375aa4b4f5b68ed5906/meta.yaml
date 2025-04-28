@@ -1,0 +1,15 @@
+artifact_uri: file:///home/naradaw/code/GCNTFT/tft_src/../mlflow_experiments/565962525244071266/0d3b7b6575594375aa4b4f5b68ed5906/artifacts
+end_time: 1743922850277
+entry_point_name: ''
+experiment_id: '565962525244071266'
+lifecycle_stage: active
+run_id: 0d3b7b6575594375aa4b4f5b68ed5906
+run_name: stylish-kite-846
+run_uuid: 0d3b7b6575594375aa4b4f5b68ed5906
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1743922765847
+status: 3
+tags: []
+user_id: naradaw

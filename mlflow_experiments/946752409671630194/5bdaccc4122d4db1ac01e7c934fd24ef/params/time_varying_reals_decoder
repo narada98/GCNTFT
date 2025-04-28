@@ -1,0 +1,1 @@
+['hour', 'dayofmonth', 'dayofweek', 'dayofyear', 'weekofyear', 'month', 'quarter', 'year', 'station_hour_sin', 'station_hour_cos', 'relative_time_idx']

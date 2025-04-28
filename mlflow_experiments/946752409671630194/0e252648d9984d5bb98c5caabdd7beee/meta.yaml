@@ -1,0 +1,15 @@
+artifact_uri: file:///home/naradaw/code/GCNTFT/tft_src/../mlflow_experiments/946752409671630194/0e252648d9984d5bb98c5caabdd7beee/artifacts
+end_time: 1743780049155
+entry_point_name: ''
+experiment_id: '946752409671630194'
+lifecycle_stage: active
+run_id: 0e252648d9984d5bb98c5caabdd7beee
+run_name: invincible-bug-286
+run_uuid: 0e252648d9984d5bb98c5caabdd7beee
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1743778777767
+status: 4
+tags: []
+user_id: naradaw

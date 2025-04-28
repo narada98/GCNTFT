@@ -1,0 +1,15 @@
+artifact_uri: file:///home/naradaw/code/GCNTFT/tft_src/../mlflow_experiments/946752409671630194/064550b634bb4aaab8d936d013ca4e7f/artifacts
+end_time: 1743778743253
+entry_point_name: ''
+experiment_id: '946752409671630194'
+lifecycle_stage: active
+run_id: 064550b634bb4aaab8d936d013ca4e7f
+run_name: masked-moth-154
+run_uuid: 064550b634bb4aaab8d936d013ca4e7f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1743778276925
+status: 4
+tags: []
+user_id: naradaw

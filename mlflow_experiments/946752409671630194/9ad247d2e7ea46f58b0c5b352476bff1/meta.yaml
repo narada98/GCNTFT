@@ -1,0 +1,15 @@
+artifact_uri: file:///home/naradaw/code/GCNTFT/tft_src/../mlflow_experiments/946752409671630194/9ad247d2e7ea46f58b0c5b352476bff1/artifacts
+end_time: 1743782575491
+entry_point_name: ''
+experiment_id: '946752409671630194'
+lifecycle_stage: active
+run_id: 9ad247d2e7ea46f58b0c5b352476bff1
+run_name: likeable-wasp-600
+run_uuid: 9ad247d2e7ea46f58b0c5b352476bff1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1743780578165
+status: 3
+tags: []
+user_id: naradaw

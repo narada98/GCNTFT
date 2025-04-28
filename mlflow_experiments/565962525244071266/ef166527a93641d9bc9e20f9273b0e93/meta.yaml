@@ -1,0 +1,15 @@
+artifact_uri: file:///home/naradaw/code/GCNTFT/tft_src/../mlflow_experiments/565962525244071266/ef166527a93641d9bc9e20f9273b0e93/artifacts
+end_time: 1743928333558
+entry_point_name: ''
+experiment_id: '565962525244071266'
+lifecycle_stage: active
+run_id: ef166527a93641d9bc9e20f9273b0e93
+run_name: incongruous-duck-894
+run_uuid: ef166527a93641d9bc9e20f9273b0e93
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1743928194993
+status: 4
+tags: []
+user_id: naradaw
